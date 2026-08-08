@@ -9,18 +9,31 @@
 
 ## 安装
 
-```bash
-# 方式一:作为全局 CLI 安装
-pip install zhipu-image-mcp        # 或: uv tool install zhipu-image-mcp
+源码托管在 [GitHub](https://github.com/liu247/zhipu-image),按需选择下面任一方式:
 
-# 方式二:在某个项目里使用
-uv add zhipu-image-mcp             # 或: pip install zhipu-image-mcp
+```bash
+# 方式一:从 GitHub 安装为全局 CLI(推荐)
+uv tool install git+https://github.com/liu247/zhipu-image.git
+# 或: pip install git+https://github.com/liu247/zhipu-image.git
+
+# 方式二:作为依赖装进某个项目
+uv add git+https://github.com/liu247/zhipu-image.git
+# 或: pip install git+https://github.com/liu247/zhipu-image.git
 ```
 
-也可以不安装,直接克隆后运行:
+已经克隆到本地的开发安装:
 
 ```bash
-uv run --with zhipu-image-mcp zhipu-image-mcp
+cd zhipu-image
+uv pip install -e .            # 或: pip install -e .(需要先有对应 Python 环境)
+```
+
+不安装、直接跑(需要本机有 [uv](https://docs.astral.sh/uv/)):
+
+```bash
+cd zhipu-image
+uv run --with-editable . zhipu-image-mcp
+# 或: uv run python -m zhipu_image_mcp
 ```
 
 ## 配置
@@ -94,7 +107,7 @@ claude mcp add zhipu-image -- zhipu-image-mcp
 # claude mcp add --env ZHIPU_API_KEY=your_key_here zhipu-image -- zhipu-image-mcp
 ```
 
-> 提示:如果全局未安装且不想装,把 `command` 替换为 `uv run --with zhipu-image-mcp zhipu-image-mcp`(需本机有 [uv](https://docs.astral.sh/uv/))。
+> 提示:如果不想全局安装,先按「安装」章节方式一装好,再把 `command` 写成全局命令;或使用 `uv run --with-editable /path/to/zhipu-image zhipu-image-mcp`(需本机有 [uv](https://docs.astral.sh/uv/))。
 
 ## 提供的工具
 
