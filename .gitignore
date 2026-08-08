@@ -1,0 +1,24 @@
+# 依赖缓存
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# 测试与覆盖率
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE / 系统
+.idea/
+.vscode/
+.DS_Store
+
+# macOS AppleDouble 元数据
+._*
+
+# Reasonix 桌面工具元数据
+.reasonix/
