@@ -53,11 +53,13 @@ export ZHIPU_API_KEY=your_key_here
 
 ## 启动
 
+> 前提:先完成「安装」章节(本地 `pip install -e .` 或 `uv tool install`),确保 `zhipu-image-mcp` 命令在 PATH 中;未全局安装时用 `python -m zhipu_image_mcp` 等效。
+
 ```bash
-# stdio(默认,给桌面/编辑器客户端用)
+# stdio(默认,供桌面/编辑器 MCP 客户端调用,纯本机进程,不需要服务器)
 zhipu-image-mcp            # 或: python -m zhipu_image_mcp
 
-# streamable HTTP(远程调用)
+# streamable HTTP(在本机监听一个 HTTP 端口,供局域网/其他程序调用,同样不需要上传云服务器)
 zhipu-image-mcp --transport streamable-http --host 127.0.0.1 --port 8000
 ```
 
@@ -107,7 +109,7 @@ claude mcp add zhipu-image -- zhipu-image-mcp
 # claude mcp add --env ZHIPU_API_KEY=your_key_here zhipu-image -- zhipu-image-mcp
 ```
 
-> 提示:如果不想全局安装,先按「安装」章节方式一装好,再把 `command` 写成全局命令;或使用 `uv run --with-editable /path/to/zhipu-image zhipu-image-mcp`(需本机有 [uv](https://docs.astral.sh/uv/))。
+> 提示:若 IDE 报 `command not found`(`zhipu-image-mcp` 不在 PATH),把 `command` 换成 `python3 -m zhipu_image_mcp`(在已安装依赖的 Python 环境下运行),或安装后命令的绝对路径(conda base 安装为 `/Users/你用户名/miniconda3/bin/zhipu-image-mcp`)。
 
 ## 提供的工具
 
